@@ -22,6 +22,8 @@ return new class extends Migration
         Schema::create('evenements', function (Blueprint $table) {
             $table->id();
             $table->string('nom');
+            $table->string('description')->nullable();
+            $table->string('path')->nullable();
             $table->integer('agelimite')->default(0);
             $table->string('lieu');
             $table->date('date');

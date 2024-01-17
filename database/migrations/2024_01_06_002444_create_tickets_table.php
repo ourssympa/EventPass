@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('libelle');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('type')->nullable();
             $table->integer('quantite');
+            $table->integer('prix');
+            $table->foreignId('evenement_id')->constrained('evenements')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
